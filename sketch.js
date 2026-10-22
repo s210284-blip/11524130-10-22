@@ -39,13 +39,11 @@ function setup() {
 
     video: {
 
-      facingMode: {
-
-        exact: "environment"
+      facingMode: "environment"
 
       }
 
-    }   
+    };   
 
     //video: {
 
