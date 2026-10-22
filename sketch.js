@@ -12,7 +12,7 @@ This example uses p5 preload function to create the classifier
 // Classifier Variable
 let classifier;
 // Model URL
-let imageModelURL = 'https://teachablemachine.withgoogle.com/models/bXy2kDNi/';
+let imageModelURL = 'https://s210284-blip.github.io/11524130-10-22/';
 
 // Video
 let video;
@@ -26,16 +26,51 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(320, 260);
+
+  createCanvas(320, 320);
+
+  
+
   // Create the video
-  video = createCapture(VIDEO);
-  video.size(320, 240);
+
+    var constraints = {
+
+    audio: false,
+
+    video: {
+
+      facingMode: {
+
+        exact: "environment"
+
+      }
+
+    }   
+
+    //video: {
+
+      //facingMode: "user"
+
+    //}
+
+  };
+
+  video = createCapture(constraints);
+
+  video.size(320, 320);
+
   video.hide();
 
+
+
   flippedVideo = ml5.flipImage(video)
+
   // Start classifying
+
   classifyVideo();
+
 }
+
 
 function draw() {
   background(0);
